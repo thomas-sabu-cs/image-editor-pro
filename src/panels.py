@@ -69,7 +69,8 @@ TOOL_INFO = {
     ),
     "eraser": (
         "Eraser (E)",
-        "Remove paint on the current layer by restoring pixels to what is visible from the layers below (no transparency). Only affects the active layer.",
+        "Remove paint on the current layer by restoring pixels to what is visible "
+        "from the layers below (no transparency). Only affects the active layer.",
     ),
     "transparency": (
         "Transparency (T)",
