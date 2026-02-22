@@ -364,12 +364,27 @@ class MainWindow(QMainWindow):
         self.setup_status_bar()
         self.connect_signals()
         
+        # Apply modern dark theme (load from styles.qss if present)
+        self._apply_app_stylesheet()
+        
         # Set window properties
         self.setWindowTitle("Image Editor Pro")
         self.resize(1200, 800)
         
         # Restore settings
         self.restore_settings()
+    
+    def _apply_app_stylesheet(self):
+        """Load and apply global QSS from styles.qss (modern dark theme)."""
+        # styles.qss lives next to main_window.py (in src/)
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        qss_path = os.path.join(base_dir, "styles.qss")
+        if os.path.isfile(qss_path):
+            try:
+                with open(qss_path, "r", encoding="utf-8") as f:
+                    self.setStyleSheet(f.read())
+            except Exception:
+                pass
     
     def setup_ui(self):
         """Set up the main user interface."""

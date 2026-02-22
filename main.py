@@ -9,18 +9,35 @@ Usage:
 
 import sys
 import os
+import logging
 
 # Add src directory to path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
+_script_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(_script_dir, 'src'))
 
-from PyQt6.QtWidgets import QApplication
-from PyQt6.QtGui import QPalette, QColor
-from PyQt6.QtCore import Qt
-from main_window import MainWindow
+# Logging: write to app.log for debugging user issues
+_log_path = os.path.join(_script_dir, "app.log")
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+    handlers=[
+        logging.FileHandler(_log_path, encoding="utf-8"),
+        logging.StreamHandler(sys.stderr),
+    ],
+)
+logger = logging.getLogger("ImageEditorPro")
 
 
 def main():
     """Main entry point for the application."""
+    logger.info("Starting Image Editor Pro")
+    try:
+        from PyQt6.QtWidgets import QApplication
+        from main_window import MainWindow
+    except Exception as e:
+        logger.exception("Failed to import application: %s", e)
+        raise
+
     # Create application
     app = QApplication(sys.argv)
     app.setApplicationName("Image Editor Pro")
@@ -50,11 +67,16 @@ def main():
     """
     
     # Create and show main window
-    window = MainWindow()
-    window.show()
-    
-    # Run application
-    sys.exit(app.exec())
+    try:
+        window = MainWindow()
+        window.show()
+        logger.info("Main window shown")
+        exit_code = app.exec()
+        logger.info("Application exiting with code %s", exit_code)
+        sys.exit(exit_code)
+    except Exception as e:
+        logger.exception("Unhandled error: %s", e)
+        raise
 
 
 if __name__ == '__main__':

@@ -1,10 +1,30 @@
 # Image Editor Pro
 
+[![Python app](https://github.com/thomas-sabu-cs/image-editor-pro/actions/workflows/python-app.yml/badge.svg)](https://github.com/thomas-sabu-cs/image-editor-pro/actions/workflows/python-app.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 ![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
 ![PyQt6](https://img.shields.io/badge/PyQt-6.6.1-brightgreen)
 
 A professional desktop image editing application built with Python and PyQt6. Image Editor Pro provides a free, open-source alternative to commercial image editors with powerful features including layer-based editing, drawing tools, image filters, and a complete undo/redo system.
+
+---
+
+## Feature Demo
+
+<!-- Add a short GIF or video showing the app in action (e.g. layers, filters, drawing). -->
+<!-- Example: ![Feature Demo](docs/demo.gif) -->
+*Placeholder: Add a "Feature Demo" GIF or short video here to showcase the app.*
+
+## Screenshots
+
+<!-- Add screenshots of the main interface, layer panel, and filters. -->
+| Main interface | Layers & tools | Filters |
+|----------------|----------------|---------|
+| *Screenshot 1* | *Screenshot 2* | *Screenshot 3* |
+
+*Placeholder: Replace with actual screenshots (e.g. `docs/screenshot-main.png`).*
+
+---
 
 ## 🌟 Features
 
