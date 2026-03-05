@@ -7,6 +7,8 @@
 
 A professional desktop image editing application built with Python and PyQt6. Image Editor Pro provides a free, open-source alternative to commercial image editors with powerful features including layer-based editing, drawing tools, image filters, and a complete undo/redo system.
 
+The project reached its current usability through a **deep refinement phase**: instead of starting new versions, the same codebase was iterated on to improve state management, data flow, and performance. For a concise account of that evolution—from the first canvas render and filter to signal-driven updates, handling UI lag and image corruption, and lessons on memory and canvas performance—see **[LEARNINGS.md](LEARNINGS.md)**.
+
 ---
 
 ## Feature Demo
@@ -224,7 +226,7 @@ For a full **Photoshop-style feature checklist** (what we have vs. what’s not 
 
 ## 🏗️ Architecture Overview
 
-Image Editor Pro follows a clean, modular architecture based on the Model-View-Controller (MVC) pattern:
+Image Editor Pro follows a clean, modular architecture based on the Model-View-Controller (MVC) pattern. Its current design reflects a **deep refinement** of data flow and rendering (see [LEARNINGS.md](LEARNINGS.md) for the evolution of that architecture):
 
 ### Project Structure
 
